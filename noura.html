@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>أنشطة الرياضيين والصحة</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css">
+		<style>
+		body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+             background: linear-gradient(90deg,black,#c05107ff,black);   
+		  #2a5298;
+  text-align: center;
+}
+
+header {
+        background: linear-gradient(90deg,black, #c05107ff,black);
+  padding: 10px;
+  color:#fff;
+}
+
+  .hero {
+  background-image: url('https://images.unsplash.com/photo-1605296867304-46d5465a13f1');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 36px;
+}
+
+.hero button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #ff4500;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.section {
+  padding: 40px 20px;
+  background: white;
+}
+nav button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: white;
+          background: linear-gradient(90deg,#454646ff,#ec9f63cf,#0f0c0c2a);
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+nav button:hover {
+  background-color: #d4fbe3;
+}
+
+.content-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 30px;
+}
+
+.card {
+  background: linear-gradient(90deg,#454646ff,#ec9f63cf,#0f0c0c2a);
+  margin: 15px;
+  padding: 20px;
+  border-radius: 15px;
+  width: 260px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+footer {
+          background: linear-gradient(90deg,black,#c05107ff,black);
+  color: white;
+  padding: 10px;
+  margin-top: 30px;
+}
+		
+		</style>
+</head>
+<body>
+
+
+  
+  <section id="home" class="hero">
+    <h2>حقق لياقتك البدنية الآن</h2>
+    <p> . انشطة و وجبات  تساعدك على الوصول إلى جسم صحي</p>
+    <button onclick="showMessage()">حسن لياقتك البدنية</button>
+  </section>
+  <header>
+    <h2>🏋🏼‍♂️💪🏻 أنشطة للرياضيين</h2>
+    <nav>
+      
+      <button onclick="showSection('activities')">الأنشطة الرياضية</button>
+      <button onclick="showSection('tips')">نصائح للصحة</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="activities" class="content-section">
+      <!-- سيتم إدخال الأنشطة هنا -->
+    </section>
+
+    <section id="tips" class="content-section" style="display: none;">
+      <!-- سيتم إدخال النصائح هنا -->
+    </section>
+  </main>
+
+
+
+  <script>
+		const activities = [
+  { title: "كارديو", desc: "تمارين الجري والمشي السريع لتحسين اللياقة." },
+  { title: "الضغط + التمارين القوة", desc: "رفع الأوزان لتقوية العضلات." },
+  { title: "تمارين البطن", desc: "لتحسين عضلات البطن." }
+];
+
+const tips = [
+  "اشرب 2 لتر من الماء يوميًا.",
+  "نم جيدًا لمدة 7-8 ساعات.",
+  "قلل من السكريات والدهون.",
+  "تناول الخضروات والفواكه يوميًا.",
+  "مارس الرياضة 30 دقيقة على الأقل يوميًا."
+];
+
+function showSection(section) {
+  document.getElementById('activities').style.display = section === 'activities' ? 'flex' : 'none';
+  document.getElementById('tips').style.display = section === 'tips' ? 'flex' : 'none';
+}
+
+function renderActivities() {
+  const container = document.getElementById('activities');
+  activities.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `<h3>${item.title}</h3><p>${item.desc}</p>`;
+    container.appendChild(card);
+  });
+}
+
+function renderTips() {
+  const container = document.getElementById('tips');
+  tips.forEach(text => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `<p>${text}</p>`;
+    container.appendChild(card);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderActivities();
+  renderTips();
+});
+		
+		
+		</script>
+  <head>
+    <style>
+.content-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 30px;
+}
+
+.card {
+  background-color: white;
+  margin: 15px;
+  padding: 20px;
+  border-radius: 15px;
+  width: 260px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+    </style>   
+    
+  </head>
+</body>
+<body>
+    <header>
+    <h2>🍽️🏋🏼‍♂️ وجبات للرياضيين</h2>
+    <nav>
+      <button onclick="showMeals('protein')">وجبات بروتين</button>
+      <button onclick="showMeals('carb')">وجبات كربوهيدرات</button>
+    </nav>
+  </header>
+
+  <main id="meals">
+    <!-- سيتم عرض الوجبات هنا -->
+  </main>
+  
+</body>
+<script>
+	const mealsData = {
+  protein: [
+    { name: "صدر دجاج + ارز", desc: "غني بالبروتين ومنخفض الدهون." },
+    { name: "بيض مسلوق + ملعقة زيت زيتون", desc: "مصدر ممتاز للبروتين الكامل." },
+    { name: "تونة مع معكرونة", desc: "بروتين سريع الهضم ومغذي." }
+  ],
+  carb: [
+    { name: "أرز بني", desc: "كربوهيدرات بطيئة الامتصاص." },
+    { name: "موز + حليب + تمر", desc: "مناسبة للطاقة المستمرة." },
+    { name: "شوفان بالحليب", desc: "مصدر غني بالألياف والطاقة." }
+  ]
+};
+
+function showMeals(type) {
+  const container = document.getElementById('meals');
+  container.innerHTML = '';
+
+  mealsData[type].forEach(meal => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `<h3>${meal.name}</h3><p>${meal.desc}</p>`;
+    container.appendChild(card);
+  });
+}
+
+// إظهار الوجبات البروتينية بشكل افتراضي عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', () => {
+  showMeals('protein');
+});
+		
+
+
+</script>
+<head>
+  <style>
+  table {
+  margin: 30px auto;
+    color:#fff;
+  width: 90%;
+  max-width: 900px;
+  border-collapse: collapse;
+            background: linear-gradient(90deg,#454646ff,#ec9f63cf,#0f0c0c2a);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 15px;
+  border-bottom: 0.5px solid black;
+}
+
+th {
+  background-color:#454646ff;
+  color: #fff;
+}
+
+tr:hover {
+  background-color: #454646ff;
+}
+  </style>
+</head>
+<body>
+  
+  <main>
+    <table id="mealsTable">
+      <thead>
+        <tr>
+          <th>النوع</th>
+          <th>اسم الوجبة</th>
+          <th>الفوائد</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <!-- سيتم ملء الصفوف هنا -->
+      </tbody>
+    </table>
+  </main>
+</body>
+<script>
+const meals = [
+  { type: "بروتين", name: "صدر دجاج مشوي ", benefit: "غني بالبروتين قليل الدهون" },
+  { type: "بروتين", name: "تونة", benefit: "بروتين سريع وسهل الهضم" },
+  { type: "بروتين", name: "السردين", benefit: "مصدر بروتين كامل" },
+  { type: "كربوهيدرات", name: "الشوفان", benefit: "يوفر طاقة مستمرة" },
+  { type: "كربوهيدرات", name: "بطاطا حلوة", benefit: "غنية بالألياف والطاقة" },
+  { type: "كربوهيدرات", name: "خبز القمح كامل", benefit: "مفيد للفطور الصحي" }
+];
+
+const tableBody = document.querySelector("#mealsTable tbody");
+
+meals.forEach(meal => {
+  const row = document.createElement("tr");
+  row.innerHTML = `
+    <td>${meal.type}</td>
+    <td>${meal.name}</td>
+    <td>${meal.benefit}</td>
+  `;
+  tableBody.appendChild(row);
+});
+</script>
+<footer>
+        <p>&copy; 2025 جميع الحقوق محفوظة</p>
+    </footer>
+</html>
